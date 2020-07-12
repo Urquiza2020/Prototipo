@@ -1,0 +1,106 @@
+<html>
+  <head>
+		<link type="text/css" rel="stylesheet" href="css/css.css">
+   </head>
+   
+   <body>
+ <div id="Lista"> 
+ 
+<div id="imgup"> 
+<img class="original" img src="Images/Postre.png"/>
+	<input id="chkpostre" type="checkbox"/>Postre
+</div>
+
+<div id="imgdn">
+	<img class="original" img src="Images/20.png"/>
+	<input id="chk20" type="checkbox"/>Numero 20
+ </div>
+ 
+
+ </div>
+
+
+<div id="agregar">
+	<center>
+				<button type="button" name="Agre" onclick="agregarDiv()">Agregar</button>
+				<button type="button" name="Bor" onclick="borrarDiv()">Borrar</button>
+	</center>
+</div>
+<br><br><br><br>
+
+<div id="Form">
+<br>
+<center>
+<label for="Name">Nombre</label>
+<input type="text" id="Nombre">
+<br><br><label for="Name">Direccion</label>
+<input type="text" id="Direccion">
+<br><br><label for="Name">Retiras o Enviamos?</label>
+<input type="text" id="Retiro">
+<br><br><label for="Name">Agrega un Comentario</label>
+<input type="text" id="Comentario">
+<br><br><button type="button" name="asdas" onclick="link()">Enviar</button><br><br>
+<center>
+</div>
+
+<script>
+ 
+
+function link ()
+{
+	var pos , num;
+	var a =document.getElementById("Nombre").value;
+	var Dir , RoD , Abon , c;
+
+
+
+
+
+
+
+
+	Dir = document.getElementById("Direccion").value;
+	RoD =document.getElementById("Retiro").value;
+	Abon =document.getElementById("Comentario").value;
+    c = "https://wa.me/?text=Hola%20Tienda%20SUSHI!%20Soy%20"+a+"%20y%20quiero%20hacer%20el%20siguiente%20pedido%20hacia%20"+Dir+"%3A%0A%0A-%201%20x%20COMBINADO%208%20NIGIRI%20%2B%208%20MAKI%20(%24%20980)%0A-%20"+RoD+"%20(%24%2050.0)%0A%0A*Total%3A%20%24%201030*%0A%0AComentario%3A%20"+Abon+"%0A%0AMuchas%20gracias!";
+	
+	//window.open(c);	
+	//document.getElementById("chkpostre").checked="checked";   para poner checkeado el checkbox
+	//alert("Hola mundo"); mensageBox
+	if(document.getElementById("chkpostre").checked) //validar checkbox's
+	{
+		
+		window.open(c); //abrir direccion html}
+	}
+
+}	
+function agre() //metodo de ejemplo , sin uso
+{
+	var boton = document.createElement("button"); // crear un boton
+	boton.innerHTML="Otro"; // texto del boton
+	boton.setAttribute("id","btn"); // configurar atributo tipo ID y ponerle nombre "btn"
+	
+	document.body.appendChild(boton); // agregar el boton
+}
+function agregarDiv() // agregar producto
+{
+	var nDiv = document.createElement("div");
+	nDiv.innerHTML="<img src='Images/3.png'/>"; //poner imagen
+	nDiv.setAttribute("id","imgnu"); // configurar atributo tipo ID y ponerle nombre "imgnu"	
+	
+	//var currentDiv = document.getElementById("Lista"); 
+	//document.body.insertBefore(nDiv,currentDiv);   insertar despues de... , por algnuna razon asi no salio
+	
+	var ag = document.getElementById('Lista').getElementsByTagName('div')[0]; // guardar en variable el div de la primer posicion
+	document.getElementById('Lista').insertBefore(nDiv,ag); // insertar en el div "lista" el div creado antes del primer posicionado
+}
+function borrarDiv() //borrar producto
+{
+	var ag = document.getElementById('Lista').getElementsByTagName('div')[0];
+	document.getElementById('Lista').removeChild(ag);
+}
+
+</script>
+
+   </body>
+</html>
